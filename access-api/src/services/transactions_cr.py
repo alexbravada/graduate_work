@@ -15,8 +15,8 @@ async def create_transaction(db: Session, transaction: TransactionCreate | Trans
     :return: ORM object
     """
     db_trans = models.Transaction(**transaction.dict())
-    db.add(db_trans)
-    db.flush()
+    await db.add(db_trans)
+    await db.flush()
     return db_trans
 
 
@@ -28,14 +28,14 @@ async def create_hold(db: Session, hold_funds: HoldFundsCreate):
     :return:
     """
     db_hold = models.FundsOnHold(**hold_funds.dict())
-    db.add(db_hold)
-    db.flush()
+    await db.add(db_hold)
+    await db.flush()
     return db_hold
 
 
 async def delete_hold(db: Session, hold_uuid: uuid.UUID):
-    db.query(models.FundsOnHold).filter(models.FundsOnHold.uuid == hold_uuid).delete()
-    db.flush()
+    await db.query(models.FundsOnHold).filter(models.FundsOnHold.uuid == hold_uuid).delete()
+    await db.flush()
 
 
 async def read_all_by_user(db: Session, user_uuid: uuid.UUID):
@@ -45,7 +45,7 @@ async def read_all_by_user(db: Session, user_uuid: uuid.UUID):
     :param user_uuid: user uuid
     :return: ORM object
     """
-    return db.query(models.Transaction).filter(models.Transaction.user_uuid == str(user_uuid)).all()
+    return await db.query(models.Transaction).filter(models.Transaction.user_uuid == str(user_uuid)).all()
 
 
 async def read_by_user(db: Session, user_uuid: uuid.UUID, skip: int, limit: int = 50):
@@ -57,5 +57,5 @@ async def read_by_user(db: Session, user_uuid: uuid.UUID, skip: int, limit: int 
     :param limit: limit of rows
     :return: ORM object
     """
-    return db.query(models.Transaction).filter(models.Transaction.user_uuid == str(user_uuid)). \
+    return await db.query(models.Transaction).filter(models.Transaction.user_uuid == str(user_uuid)). \
         offset(skip).limit(limit).all()

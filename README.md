@@ -1,6 +1,6 @@
 # Проектная работа: диплом
 
-Автор [@alexbravada](https://github.com/alexbravada)
+Автор: [@alexbravada](https://github.com/alexbravada)
 Ссылка на репозиторий (https://github.com/alexbravada/graduate_work/)
 
 ## Запуск проекта
@@ -34,7 +34,7 @@ stripe listen --forward-to 127.0.0.1:8000/api/v1/webhook/
 ```
 
 Access API доступно
-на http://127.0.0.1:8000/api/, [авто-документация](https://github.com/alexbravada/graduate_work/blob/dev/access-api/autodoc.json)
+на http://127.0.0.1:8000/api/, [авто-документация](https://github.com/paQQuete/graduate_work/blob/dev/access-api/autodoc.json)
 
 Admin Panel доступна на http://127.0.0.1:8000/admin/
 

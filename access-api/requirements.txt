@@ -1,8 +1,7 @@
 sqlalchemy[asyncio]==2.0.13
-asyncpg
+#sqlalchemy==2.0.13
 redis==4.5.5
 fastapi==0.95.2
-#sqlalchemy==2.0.13
 sqlalchemy_utils==0.41.1
 alembic==1.11.0
 orjson==3.8.12

@@ -13,4 +13,4 @@ async def read_user_balance(db: Session, user_uuid: uuid.UUID):
     :param user_uuid: uuid of user
     :return: ORM object
     """
-    return db.query(models.Balance).filter(models.Balance.user_uuid == str(user_uuid)).one()
+    return await db.query(models.Balance).filter(models.Balance.user_uuid == str(user_uuid)).one()
