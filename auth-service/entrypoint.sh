@@ -13,4 +13,6 @@ done
 
 export FLASK_APP=wsgi_app
 export FLASK_RUN_PORT=8005
-python3 -m flask run --with-threads --reload --host=0.0.0.0
+#python3 -m flask run --with-threads --reload --host=0.0.0.0
+
+python3 pywsgi.py
