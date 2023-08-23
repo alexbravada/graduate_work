@@ -8,5 +8,5 @@ class PostgresService:
         self.engine = create_engine(
             self.settings.PG_CONNECT_STRING,
             isolation_level="REPEATABLE READ",
-            echo=True
+            echo=False
         )

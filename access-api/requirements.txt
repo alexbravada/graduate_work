@@ -1,4 +1,6 @@
 sqlalchemy[asyncio]==2.0.13
+asyncpg
+httpx
 #sqlalchemy==2.0.13
 redis==4.5.5
 fastapi==0.95.2

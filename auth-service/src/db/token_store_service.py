@@ -21,8 +21,10 @@ class TokenStoreService:
         self.storage.set(email, value=str(iat), ex=datetime.timedelta(seconds=int(expired)))
 
     def check_logout_email_date(self, email: str, iat) -> bool:
-        '''returns False if token is blocked
-            else -> True'''
+        '''
+        returns False if token is blocked
+        else -> True
+        '''
         date = self.check_blacklist(email)
         if date and iat <= int(date):
             return True

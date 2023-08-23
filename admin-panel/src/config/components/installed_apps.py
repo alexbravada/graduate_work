@@ -1,4 +1,5 @@
-from settings import DEBUG
+import os
+
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -13,6 +14,8 @@ INSTALLED_APPS = [
     'corsheaders',
     'django_celery_results',
     'django_celery_beat',
-] 
-if DEBUG:
+]
+
+debug = os.environ.get('DEBUG', False) == 'True'
+if debug:
     INSTALLED_APPS.append('debug_toolbar')

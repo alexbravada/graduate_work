@@ -55,8 +55,7 @@ class Settings(BaseSettings):
     PROJECT: Project = Project()
     SENTRY: Sentry = Sentry()
 
-    SQLALCHEMY_DATABASE_URL = \
-        f"postgresql+asyncpg://{DB.DB_USER}:{DB.DB_PASSWORD}@{DB.POSTGRES_HOST}:{DB.POSTGRES_PORT}/{DB.BILLING_DB}"
+    SQLALCHEMY_DATABASE_URL = f"postgresql+asyncpg://{DB.DB_USER}:{DB.DB_PASSWORD}@{DB.POSTGRES_HOST}:{DB.POSTGRES_PORT}/{DB.BILLING_DB}"
     PROJECT_URL = f"http://{PROJECT.PROJECT_DOMAIN}:{PROJECT.PROJECT_PORT}"
 
     BASE_DIR: str = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))

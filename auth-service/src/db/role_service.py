@@ -117,24 +117,3 @@ class RoleService(PostgresService):
             })
             session.commit()
             return session.query(User).filter(User.id == user_id).one()
-
-    # @engine_session()
-    # def user_check_role(self, user_id, session: sqlalchemy.orm.Session = None):
-    #     try:
-    #         return session.query(User).filter(User.id == user_id).one().as_dict.pop('role_id')
-    #     except NoResultFound:
-    #         abort(404)
-    #
-    # @engine_session()
-    # def role_check_user(self, role_id, session: sqlalchemy.orm.Session = None):
-    #     try:
-    #         role_user = session.query(UserRole).filter(UserRole.role_id == role_id).all()
-    #         if len(role_user) == 0:
-    #             abort(404)
-    #         return role_user
-    #     except NoResultFound:
-    #         abort(404)
-    #
-    # @engine_session()
-    # def user_role_show_all(self, session: sqlalchemy.orm.Session = None):
-    #     return session.query(UserRole).all()
