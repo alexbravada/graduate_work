@@ -1,5 +1,5 @@
 Flask==2.2.2
-gevent==22.10.1
+gevent==23.9.0
 flask-jwt-extended[asymmetric_crypto]==4.4.4
 SQLAlchemy==1.4.42
 psycopg2-binary==2.9.6
