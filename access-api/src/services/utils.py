@@ -1,5 +1,6 @@
 import httpx
-from fastapi import Header
+from fastapi import Header, HTTPException, status
+
 
 async def validate_auth_key(auth_key: str) -> bool:
     url = "/auth/v1/access"  # URL микросервиса auth
@@ -8,7 +9,7 @@ async def validate_auth_key(auth_key: str) -> bool:
     async with httpx.AsyncClient() as client:
         response = await client.get(url, headers=headers)
         
-    if response.status_code == 200:
+    if response.status_code == status.HTTP_200_OK:
         return True
     else:
         return False
@@ -17,5 +18,5 @@ async def validate_auth_key(auth_key: str) -> bool:
 async def check_auth_key(auth_key: str = Header(...)):
     is_valid = await validate_auth_key(auth_key)
     if not is_valid:
-        raise HTTPException(status_code=401, detail="Invalid auth key")
+        raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED, detail="Invalid auth key")
     return True

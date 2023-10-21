@@ -5,12 +5,12 @@ WORKDIR /auth
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
+RUN apt-get update && apt-get install -y netcat
+
 COPY src/requirements.txt requirements.txt
 
 RUN pip3 install --upgrade pip &&  \
     pip3 install -r requirements.txt --no-cache-dir
-
-RUN apt-get update && apt-get install -y netcat
 
 COPY src .
 

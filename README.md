@@ -1,6 +1,6 @@
 # Проектная работа: диплом
 
-Автор [@alexbravada](https://github.com/alexbravada)
+Автор: [@alexbravada](https://github.com/alexbravada)
 Ссылка на репозиторий (https://github.com/alexbravada/graduate_work/)
 
 ## Запуск проекта

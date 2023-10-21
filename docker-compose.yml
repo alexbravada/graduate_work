@@ -54,9 +54,8 @@ services:
     container_name: rabbitmq
     hostname: rabbitmq
     image: rabbitmq:3.12-rc-management
-    environment:
-      - RABBITMQ_DEFAULT_USER=rmuser
-      - RABBITMQ_DEFAULT_PASS=rmpassword
+    env_file:
+      - .env
     depends_on:
       - admin-panel
 

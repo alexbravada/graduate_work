@@ -1,3 +1,6 @@
+import os
+
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -7,9 +10,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'movies.apps.MoviesConfig',
     'billing.apps.BillingConfig',
-    'debug_toolbar',
     'django_extensions',
     'corsheaders',
     'django_celery_results',
     'django_celery_beat',
 ]
+
+debug = os.environ.get('DEBUG', False) == 'True'
+if debug:
+    INSTALLED_APPS.append('debug_toolbar')
